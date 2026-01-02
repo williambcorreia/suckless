@@ -21,7 +21,7 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "", "󰖟", "", "" };
+static const char *tags[] = { "", "󰖟", "", "", "󱛿" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -35,6 +35,7 @@ static const Rule rules[] = {
 	{ "pamixerfl", NULL,       NULL,       0,	  1,	      0,	   1,        -1 },
 	{ "Virt-manager", NULL, "Gerenciador de máquinas virtuais", 1 << 2, 0, 0,  1,        -1 },
 	{ "Virt-manager", NULL, "em QEMU/KVM", 1 << 3,    0,	      0,	   1,        -1 },
+	{ "Shotcut", 	NULL,	NULL,		1 << 4,	  0,	      0,           1,        -1 },
         { NULL,      NULL,     "Event Tester", 0,         0,          0,           1,        -1 }, /* xev */
  };
 
