@@ -7,5 +7,9 @@ FULL=$(acpi -b | awk '/Battery/ { print $3 }' | sed s/,//g)
 printf "$BAT"
 
 if [[ $CAR == "Charging" ]]; then
-       printf " "
+       printf " 󱐋"
 fi       
+
+if [[ $FULL == Full ]]; then
+	printf " "
+fi
