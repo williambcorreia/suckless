@@ -21,7 +21,7 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "", "󰖟", "", "" };
+static const char *tags[] = { "", "󰖟", "", "", };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -29,8 +29,8 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
         /* class     instance  title           tags mask  isfloating  isterminal  noswallow  monitor */
-        { "firefox", NULL,     NULL,           1 << 1,    0,          0,          -1,        -1 },
-	{ "firefox-esr",  NULL,     "Biblioteca",   0,         1,          0,           1,        -1 },
+        { "Firefox", NULL,     NULL,           1 << 1,    0,          0,          -1,        -1 },
+	{ "Firefox", NULL,     "Biblioteca",   0,         1,          0,           1,        -1 },
         { "st-256color", NULL, NULL,           0,         0,          1,           0,        -1 },
 	{ "pamixerfl", NULL,       NULL,       0,	  1,	      0,	   1,        -1 },
 	{ "Virt-manager", NULL, "Gerenciador de máquinas virtuais", 1 << 2, 0, 0,  1,        -1 },
@@ -68,11 +68,10 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[] = { "st", NULL };
-static const char *pamixerfl[] = { "/home/williamc/suckless/scripts/pamixerfl.sh", NULL };
-static const char *blur[] = { "/home/williamc/suckless/scripts/blur.sh", NULL };
-static const char *print_full[] = { "/home/williamc/suckless/scripts/print-full.sh", NULL };
-static const char *print_sel[] = { "/home/williamc/suckless/scripts/print-sel.sh", NULL };
-static const char *print_clip[] = { "/home/williamc/suckless/scripts/print-clip.sh", NULL };
+static const char *pamixerfl[] = { "/home/williamc/documentos/suckless/scripts/pamixerfl.sh", NULL };
+static const char *print_full[] = { "/home/williamc/documentos/suckless/scripts/print-full.sh", NULL };
+static const char *print_sel[] = { "/home/williamc/documentos/suckless/scripts/print-sel.sh", NULL };
+static const char *print_clip[] = { "/home/williamc/documentos/suckless/scripts/print-clip.sh", NULL };
 
 
 static const Key keys[] = {
@@ -112,7 +111,6 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_e,      quit,           {0} },
 	{ MODKEY|ShiftMask,		XK_p,	   spawn,	   {.v = pamixerfl } },
-	{ MODKEY|ShiftMask,		XK_b,      spawn,	   {.v = blur } },
 	{ ControlMask|ShiftMask,	XK_Print,  spawn,	   {.v = print_full } },
 	{ ShiftMask,			XK_Print,  spawn,	   {.v = print_sel } },
 	{ 0,				XK_Print,  spawn,	   {.v = print_clip } },
