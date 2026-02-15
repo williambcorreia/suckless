@@ -76,9 +76,9 @@ static const char *pamixerfl[] = { "/home/williamc/documentos/suckless/scripts/p
 static const char *print_full[] = { "/home/williamc/documentos/suckless/scripts/print-full.sh", NULL };
 static const char *print_sel[] = { "/home/williamc/documentos/suckless/scripts/print-sel.sh", NULL };
 static const char *print_clip[] = { "/home/williamc/documentos/suckless/scripts/print-clip.sh", NULL };
-static const char *xaudioup[] = { "/usr/bin/pactl", "set-sink-volume", "@DEFAULT_SINK@", "+5%", NULL };
-static const char *xaudiodown[] = { "/usr/bin/pactl", "set-sink-volume", "@DEFAULT_SINK@", "-5%", NULL };
-static const char *xaudiomute[] = { "/usr/bin/pactl", "set-sink-mute", "@DEFAULT_SINK@", "toggle", NULL };
+static const char *xaudioup[] = { "/bin/sh", "-c", "pactl set-sink-volume @DEFAULT_SINK@ +5%; pkill -RTMIN+5 dwmblocks", NULL };
+static const char *xaudiodown[] = { "/bin/sh", "-c", "pactl set-sink-volume @DEFAULT_SINK@ -5%; pkill -RTMIN+5 dwmblocks", NULL };
+static const char *xaudiomute[] = { "/bin/sh", "-c", "pactl set-sink-mute @DEFAULT_SINK@ toggle; pkill -RTMIN+5 dwmblocks", NULL };
 
 
 static const Key keys[] = {
