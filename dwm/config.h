@@ -1,5 +1,9 @@
 /* See LICENSE file for copyright and license details. */
 
+// includes //
+#include "fibonacci.c"
+#include <X11/XF86keysym.h>
+
 /* appearance */
 static const unsigned int borderpx  = 4;        /* border pixel of windows */
 static const unsigned int gappx     = 8;
@@ -44,7 +48,6 @@ static const int resizehints = 0;    /* 1 means respect size hints in tiled resi
 static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen window */
 static const int refreshrate = 120;  /* refresh rate (per second) for client move/resize */
 
-#include "fibonacci.c"
 static const Layout layouts[] = {
 	/* symbol     arrange function */
 	{ "",      spiral },
@@ -73,6 +76,9 @@ static const char *pamixerfl[] = { "/home/williamc/documentos/suckless/scripts/p
 static const char *print_full[] = { "/home/williamc/documentos/suckless/scripts/print-full.sh", NULL };
 static const char *print_sel[] = { "/home/williamc/documentos/suckless/scripts/print-sel.sh", NULL };
 static const char *print_clip[] = { "/home/williamc/documentos/suckless/scripts/print-clip.sh", NULL };
+static const char *xaudioup[] = { "/usr/bin/pactl", "set-sink-volume", "@DEFAULT_SINK@", "+5%", NULL };
+static const char *xaudiodown[] = { "/usr/bin/pactl", "set-sink-volume", "@DEFAULT_SINK@", "-5%", NULL };
+static const char *xaudiomute[] = { "/usr/bin/pactl", "set-sink-mute", "@DEFAULT_SINK@", "toggle", NULL };
 
 
 static const Key keys[] = {
@@ -89,10 +95,10 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_z,      zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY|ShiftMask,             XK_q,      killclient,     {0} },
-	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
-	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
-	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
-	{ MODKEY,                       XK_r,      setlayout,      {.v = &layouts[3]} },
+	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[1]} },
+	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[2]} },
+	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[3]} },
+	{ MODKEY,                       XK_r,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY|ShiftMask,             XK_r,      setlayout,      {.v = &layouts[4]} },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
@@ -117,6 +123,9 @@ static const Key keys[] = {
 	{ ControlMask|ShiftMask,	XK_Print,  spawn,	   {.v = print_full } },
 	{ ShiftMask,			XK_Print,  spawn,	   {.v = print_sel } },
 	{ 0,				XK_Print,  spawn,	   {.v = print_clip } },
+	{ 0,				XF86XK_AudioRaiseVolume, spawn, {.v = xaudioup } }, 
+	{ 0,				XF86XK_AudioLowerVolume, spawn, {.v = xaudiodown } }, 
+	{ 0,				XF86XK_AudioMute,        spawn, {.v = xaudiomute } }, 
 };
 
 /* button definitions */
