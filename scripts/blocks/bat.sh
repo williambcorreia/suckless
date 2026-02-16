@@ -1,15 +1,19 @@
 #!/bin/sh
 
-BAT=$(acpi -b | awk '/Battery/ { print "BAT:" $4 "%"}' | sed s/,//g)
-CAR=$(acpi -b | awk '/Battery/ { print $3 }' | sed s/,//g)
-FULL=$(acpi -b | awk '/Battery/ { print $3 }' | sed s/,//g)
+bat=$(acpi -b | awk '/Battery/ { print $4 }' | sed s/,//g | tr -d '%')
+car=$(acpi -b | awk '/Battery/ { print $3 }' | sed s/,//g)
 
-printf "$BAT"
+case 1 in
+	$((bat <= 20)) )		icon="󰁻 $bat%";;
+	$((bat <= 50)) )		icon="󰁾 $bat%";;
+	$((bat <= 70)) )		icon="󰂀 $bat%";;
+	$((bat <= 90)) )		icon="󰂁 $bat%";;
+	*)				icon="󰁹 $bat%";;
+esac
 
-if [ $CAR = "Charging" ]; then
-       printf " 󱐋"
-fi       
-
-if [ $FULL = Full ]; then
-	printf " "
+if [ "$car" = "Charging" ]; then
+	icon="󰂄 $bat%"
+	echo "$icon"
+else
+	echo "$icon"
 fi
