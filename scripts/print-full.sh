@@ -2,4 +2,4 @@
 
 dt=$(date +%Y-%m-%d_%H-%M-%S)
 
-maim ~/Imagens/prints/print_$dt.png
+maim ~/imagens/print_$dt.png
