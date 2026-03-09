@@ -52,11 +52,11 @@ static const int refreshrate = 120;  /* refresh rate (per second) for client mov
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-        { "",      dwindle },
+	{ "@",      spiral },
 	{ "󰕰",      tile },    /* first entry is default */
 	{ "",      NULL },    /* no layout function means floating behavior */
 	{ "",      monocle },
-	{ "[@]",      spiral },
+        { "",      dwindle },
 };
 
 /* key definitions */
@@ -78,9 +78,9 @@ static const char *pamixerfl[] = { "/home/williamc/documentos/suckless/scripts/p
 static const char *print_full[] = { "/home/williamc/documentos/suckless/scripts/print-full.sh", NULL };
 static const char *print_sel[] = { "/home/williamc/documentos/suckless/scripts/print-sel.sh", NULL };
 static const char *print_clip[] = { "/home/williamc/documentos/suckless/scripts/print-clip.sh", NULL };
-static const char *fnf5[] = { "/usr/bin/pactl", "pactl set-sink-volume @DEFAULT_SINK@ -5%", NULL };
-static const char *fnf6[] = { "/usr/bin/pactl", "pactl set-sink-volume @DEFAULT_SINK@ +5%", NULL };
-static const char *fnf3[] = { "/usr/bin/pactl", "set-sink-mute @DEFAULT_SINK@ toggle", NULL };
+static const char *fnf5[] = { "/bin/sh", "-c", "pactl set-sink-volume @DEFAULT_SINK@ -5% && pkill -RTMIN+5 dwmblocks", NULL };
+static const char *fnf6[] = { "/bin/sh", "-c", "pactl set-sink-volume @DEFAULT_SINK@ +5% && pkill -RTMIN+5 dwmblocks", NULL };
+static const char *fnf3[] = { "/bin/sh", "-c", "pactl set-sink-mute @DEFAULT_SINK@ toggle && pkill -RTMIN+5 dwmblocks", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
