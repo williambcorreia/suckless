@@ -78,9 +78,11 @@ static const char *pamixerfl[] = { "/home/williamc/documentos/suckless/scripts/p
 static const char *print_full[] = { "/home/williamc/documentos/suckless/scripts/print-full.sh", NULL };
 static const char *print_sel[] = { "/home/williamc/documentos/suckless/scripts/print-sel.sh", NULL };
 static const char *print_clip[] = { "/home/williamc/documentos/suckless/scripts/print-clip.sh", NULL };
+static const char *fnf3[] = { "/bin/sh", "-c", "pactl set-sink-mute @DEFAULT_SINK@ toggle && pkill -RTMIN+5 dwmblocks", NULL };
 static const char *fnf5[] = { "/bin/sh", "-c", "pactl set-sink-volume @DEFAULT_SINK@ -5% && pkill -RTMIN+5 dwmblocks", NULL };
 static const char *fnf6[] = { "/bin/sh", "-c", "pactl set-sink-volume @DEFAULT_SINK@ +5% && pkill -RTMIN+5 dwmblocks", NULL };
-static const char *fnf3[] = { "/bin/sh", "-c", "pactl set-sink-mute @DEFAULT_SINK@ toggle && pkill -RTMIN+5 dwmblocks", NULL };
+static const char *fnf8[] = { "/bin/sh", "-c", "brightnessctl set 10%- && pkill -RTMIN+6 dwmblock", NULL};
+static const char *fnf9[] = { "/bin/sh", "-c", "brightnessctl set +10% && pkill -RTMIN+6 dwmblock", NULL};
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -129,6 +131,8 @@ static const Key keys[] = {
 	{ 0,				XF86XK_AudioRaiseVolume, spawn,   {.v = fnf6 } },
 	{ 0,				XF86XK_AudioLowerVolume, spawn,   {.v = fnf5 } },
 	{ 0,				XF86XK_AudioMute,        spawn,   {.v = fnf3 } },
+	{ 0, 				XF86XK_MonBrightnessDown, spawn,  {.v = fnf8 } },
+	{ 0, 				XF86XK_MonBrightnessUp  , spawn,  {.v = fnf9 } },
 
 };
 
