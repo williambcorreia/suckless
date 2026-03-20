@@ -81,8 +81,8 @@ static const char *print_clip[] = { "/home/williamc/documentos/suckless/scripts/
 static const char *fnf3[] = { "/bin/sh", "-c", "pactl set-sink-mute @DEFAULT_SINK@ toggle && pkill -RTMIN+5 dwmblocks", NULL };
 static const char *fnf5[] = { "/bin/sh", "-c", "pactl set-sink-volume @DEFAULT_SINK@ -5% && pkill -RTMIN+5 dwmblocks", NULL };
 static const char *fnf6[] = { "/bin/sh", "-c", "pactl set-sink-volume @DEFAULT_SINK@ +5% && pkill -RTMIN+5 dwmblocks", NULL };
-static const char *fnf8[] = { "/bin/sh", "-c", "brightnessctl set 10%- && pkill -RTMIN+6 dwmblock", NULL};
-static const char *fnf9[] = { "/bin/sh", "-c", "brightnessctl set +10% && pkill -RTMIN+6 dwmblock", NULL};
+static const char *fnf8[] = { "/bin/sh", "-c", "brightnessctl set 10%- && pkill -RTMIN+6 dwmblocks", NULL};
+static const char *fnf9[] = { "/bin/sh", "-c", "brightnessctl set +10% && pkill -RTMIN+6 dwmblocks", NULL};
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
