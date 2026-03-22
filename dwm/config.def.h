@@ -12,14 +12,14 @@ static const unsigned int snap      = 32;       /* snap pixel */
 static const int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "JetBrainsMono Nerd Font:size=12" };
-static const char dmenufont[]       = "JetBrainsMono Nerd Font:size=12";
+static const char *fonts[]          = { "UbuntuMonoNerdFont-Regular:size=15" };
+static const char dmenufont[]       = "UbuntuMonoNerdFont-Regular:size=15";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
-static const char col_cyan[]        = "#24783a";
-static const char col_border[]      = "#c7080e";
+static const char col_cyan[]        = "#454647";
+static const char col_border[]      = "#dbd4c1";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
@@ -78,19 +78,21 @@ static const char *pamixerfl[] = { "/home/williamc/documentos/suckless/scripts/p
 static const char *print_full[] = { "/home/williamc/documentos/suckless/scripts/print-full.sh", NULL };
 static const char *print_sel[] = { "/home/williamc/documentos/suckless/scripts/print-sel.sh", NULL };
 static const char *print_clip[] = { "/home/williamc/documentos/suckless/scripts/print-clip.sh", NULL };
+static const char *fnf3[] = { "/bin/sh", "-c", "pactl set-sink-mute @DEFAULT_SINK@ toggle && pkill -RTMIN+5 dwmblocks", NULL };
 static const char *fnf5[] = { "/bin/sh", "-c", "pactl set-sink-volume @DEFAULT_SINK@ -5% && pkill -RTMIN+5 dwmblocks", NULL };
 static const char *fnf6[] = { "/bin/sh", "-c", "pactl set-sink-volume @DEFAULT_SINK@ +5% && pkill -RTMIN+5 dwmblocks", NULL };
-static const char *fnf3[] = { "/bin/sh", "-c", "pactl set-sink-mute @DEFAULT_SINK@ toggle && pkill -RTMIN+5 dwmblocks", NULL };
+static const char *fnf8[] = { "/bin/sh", "-c", "brightnessctl set 10%- && pkill -RTMIN+6 dwmblocks", NULL};
+static const char *fnf9[] = { "/bin/sh", "-c", "brightnessctl set +10% && pkill -RTMIN+6 dwmblocks", NULL};
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
-	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
-	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
-        { MODKEY|ShiftMask,             XK_j,      pushdown,       {0} },
-        { MODKEY|ShiftMask,             XK_k,      pushup,         {0} },
+	{ MODKEY,                       XK_k,      focusstack,     {.i = +1 } },
+	{ MODKEY,                       XK_j,      focusstack,     {.i = -1 } },
+        { MODKEY|ShiftMask,             XK_k,      pushdown,       {0} },
+        { MODKEY|ShiftMask,             XK_j,      pushup,         {0} },
 	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
 	{ MODKEY,                       XK_p,      incnmaster,     {.i = -1 } },
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
@@ -129,6 +131,8 @@ static const Key keys[] = {
 	{ 0,				XF86XK_AudioRaiseVolume, spawn,   {.v = fnf6 } },
 	{ 0,				XF86XK_AudioLowerVolume, spawn,   {.v = fnf5 } },
 	{ 0,				XF86XK_AudioMute,        spawn,   {.v = fnf3 } },
+	{ 0, 				XF86XK_MonBrightnessDown, spawn,  {.v = fnf8 } },
+	{ 0, 				XF86XK_MonBrightnessUp  , spawn,  {.v = fnf9 } },
 
 };
 
