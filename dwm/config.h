@@ -4,7 +4,6 @@
 #include "fibonacci.c"
 #include <X11/XF86keysym.h>
 
-
 /* appearance */
 static const unsigned int borderpx  = 4;        /* border pixel of windows */
 static const unsigned int gappx     = 8;
@@ -12,13 +11,13 @@ static const unsigned int snap      = 32;       /* snap pixel */
 static const int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "JetBrainsMono Nerd Font:size=12" };
-static const char dmenufont[]       = "JetBrainsMono Nerd Font:size=12";
-static const char col_gray1[]       = "#222222";
+static const char *fonts[]          = { "UbuntuMonoNerdFont-Regular:size=16" };
+static const char dmenufont[]       = "UbuntuMonoNerdFont-Regular:size=16";
+static const char col_gray1[]       = "#282828";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
-static const char col_gray4[]       = "#eeeeee";
-static const char col_cyan[]        = "#454647";
+static const char col_gray4[]       = "#ffffff";
+static const char col_cyan[]        = "#282828";
 static const char col_border[]      = "#dbd4c1";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
