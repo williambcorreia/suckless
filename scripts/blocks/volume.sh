@@ -7,10 +7,10 @@ case "$mute" in
 	"yes") icon="󰖁" vol="" ;;
 	"no")
 	case 1 in
-		$((vol <= 30)) )	icon="󰕿 $vol%" ;;
-		$((vol <= 50)) )	icon="󰖀 $vol%" ;;
-		$((vol <= 100)) )	icon="󰕾 $vol%" ;;
-		*)			icon="󱄡 $vol%" ;;
+		$((vol <= 30)) )	icon="󰕿 $vol" ;;
+		$((vol <= 50)) )	icon="󰖀 $vol" ;;
+		$((vol <= 100)) )	icon="󰕾 $vol" ;;
+		*)			icon="󱄡 $vol" ;;
 	esac
 	;;
 esac

@@ -8,16 +8,16 @@ if [ "$bat" = "charging" ]; then
 	icon="󰂄 $num"	
 else
 	case 1 in
-		$((bat <= 20)) )		icon="󰁻 $bat%";;
-		$((bat <= 50)) )		icon="󰁾 $bat%";;
-		$((bat <= 70)) )		icon="󰂀 $bat%";;
-		$((bat <= 90)) )		icon="󰂁 $bat%";;
-		*)				icon="󰁹 $bat%";;
+		$((bat <= 20)) )		icon="󰁻 $bat";;
+		$((bat <= 50)) )		icon="󰁾 $bat";;
+		$((bat <= 70)) )		icon="󰂀 $bat";;
+		$((bat <= 90)) )		icon="󰂁 $bat";;
+		*)				icon="󰁹 $bat";;
 	esac
 fi
 
 if [ "$car" = "Charging" ]; then
-	icon="󰂄 $bat%"
+	icon="󰂄 $bat"
 	echo "$icon"
 fi
 
