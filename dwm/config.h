@@ -9,13 +9,13 @@ static const unsigned int borderpx  = 4;        /* border pixel of windows */
 static const unsigned int gappx     = 8;
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
-static const int showbar            = 1;        /* 0 means no bar */
+static const int showbar            = 0;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "UbuntuMonoNerdFont-Regular:size=16" };
 static const char dmenufont[]       = "UbuntuMonoNerdFont-Regular:size=16";
 static const char col_gray1[]       = "#282828";
 static const char col_gray2[]       = "#444444";
-static const char col_gray3[]       = "#bbbbbb";
+static const char col_gray3[]       = "#616161";
 static const char col_gray4[]       = "#ffffff";
 static const char col_cyan[]        = "#282828";
 static const char col_border[]      = "#dbd4c1";
@@ -82,6 +82,7 @@ static const char *fnf5[] = { "/bin/sh", "-c", "pactl set-sink-volume @DEFAULT_S
 static const char *fnf6[] = { "/bin/sh", "-c", "pactl set-sink-volume @DEFAULT_SINK@ +5% && pkill -RTMIN+5 dwmblocks", NULL };
 static const char *fnf8[] = { "/bin/sh", "-c", "brightnessctl set 10%- && pkill -RTMIN+6 dwmblocks", NULL};
 static const char *fnf9[] = { "/bin/sh", "-c", "brightnessctl set +10% && pkill -RTMIN+6 dwmblocks", NULL};
+static const char *thunar[] = { "/bin/sh", "-c", "thunar", NULL};
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -123,6 +124,7 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_e,      quit,           {0} },
+	{ MODKEY,			XK_e,	   spawn,	   {.v = thunar } },
 	{ MODKEY|ShiftMask,		XK_p,	   spawn,	   {.v = pamixerfl } },
 	{ ControlMask|ShiftMask,	XK_Print,  spawn,	   {.v = print_full } },
 	{ ShiftMask,			XK_Print,  spawn,	   {.v = print_sel } },

@@ -1,8 +1,8 @@
 #!/bin/sh
 
-bat=$(acpi -b | awk '/Battery/ { print $4 }' | sed s/,//g | tr -d '%')
+bat=$(acpi -b | awk '/Battery/ { print $4 }' | sed s/,//g | tr -d ',%')
 car=$(acpi -b | awk '/Battery/ { print $3 }' | sed s/,//g)
-num=$(acpi -b | awk '/Battery/ { print $5 }')
+num=$(acpi -b | awk '/Battery/ { print $5 }' | sed s/,//g | tr -d ',%')
 
 if [ "$bat" = "charging" ]; then
 	icon="󰂄 $num"	
@@ -18,7 +18,6 @@ fi
 
 if [ "$car" = "Charging" ]; then
 	icon="󰂄 $bat"
-	echo "$icon"
 fi
 
 echo "$icon"
