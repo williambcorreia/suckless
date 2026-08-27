@@ -5,7 +5,7 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "DejaVuSansMono:pixelsize=20:antialias=true:autohint=true";
+static char *font = "IoskeleyMonoNerdFontMono-Regular:pixelsize=20:antialias=true:autohint=true";
 static int borderpx = 2;
 
 /*
@@ -123,8 +123,8 @@ static const char *colorname[] = {
 	/* more colors can be added after 255 to use with DefaultXX */
 	"#cccccc",
 	"#555555",
-	"gray90", /* default foreground colour */
-	"#282828", /* default background colour */
+	"#fff", /* default foreground colour */
+	"#000", /* default background colour */
 };
 
 
